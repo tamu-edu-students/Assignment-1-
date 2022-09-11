@@ -53,10 +53,20 @@ end
 
 def starts_with_consonant?(string)
   # YOUR CODE HERE
+  return string =~ /\A(?=[^aeiou])(?=[a-z])/i
 end
 
 def binary_multiple_of_4?(string)
   # YOUR CODE HERE
+  if string.length == 0 || string.match(/[^ 01]/)
+    return false
+  end
+  num = string.to_i(2)
+  if num % 4 == 0
+    retirn true
+  else
+    return false
+  end
 end
 
 # Part 3
