@@ -63,7 +63,7 @@ def binary_multiple_of_4?(string)
   end
   num = string.to_i(2)
   if num % 4 == 0
-    retirn true
+    return true
   else
     return false
   end
@@ -77,15 +77,13 @@ class BookInStock
   attr_accessor :isbn
   attr_accessor :price
   def initialize(isbn, price)
-    if isbn == nil || isbn.length == 0 || price < 0
-      raise ArgumentError
-    end
+    raise ArgumentError if isbn == "" || price <= 0
     @isbn = isbn
     @price = price
   end
 
   def price_as_string
-    return "$" + format("%.f",@price)
+    return "$" + format("%.2f",@price)
   end
   
 end
